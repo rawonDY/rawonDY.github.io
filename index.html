@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="ko" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kim Rae Won | Portfolio & Resume</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Inter & Noto Sans KR -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'Noto Sans KR', 'sans-serif'],
+                    },
+                    colors: {
+                        wave: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            900: '#0c4a6e',
+                        },
+                        abyss: {
+                            800: '#1e293b',
+                            900: '#0f172a',
+                            950: '#0b1329',
+                        },
+                        salt: {
+                            50: '#f8fafc',
+                            100: '#f1f5f9',
+                            200: '#e2e8f0',
+                        },
+                        point: {
+                            yellow: '#fbbf24', // 따뜻하고 경쾌한 노란색
+                            red: '#ef4444',    // 시선을 사로잡는 빨간색
+                        }
+                    },
+                    boxShadow: {
+                        'ocean': '0 10px 30px -10px rgba(14, 165, 233, 0.15)',
+                        'wave-glow': '0 0 20px rgba(14, 165, 233, 0.1)',
+                        'card-flat': '0 4px 20px rgba(15, 23, 42, 0.04)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* 소금 같은 하얀색 베이스에 파도가 부서지는 유리 효과 */
+        .glass-light {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(14, 165, 233, 0.12);
+        }
+        .ocean-card-hover {
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .ocean-card-hover:hover {
+            transform: translateY(-4px);
+            border-color: rgba(14, 165, 233, 0.4);
+            box-shadow: 0 15px 35px -10px rgba(14, 165, 233, 0.2);
+        }
+        @keyframes drift-slow {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(4%, 3%) scale(1.08); }
+        }
+        .bg-drift-effect {
+            animation: drift-slow 12s infinite ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-salt-50 text-abyss-900 font-sans selection:bg-wave-500 selection:text-white overflow-x-hidden">
+
+    <!-- 청량한 바다의 미풍을 형상화한 배경 그래디언트 오버레이 -->
+    <div class="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+        <div class="absolute top-[-20%] left-[-10%] w-[60%] h-[60%] rounded-full bg-wave-100/40 blur-[130px] bg-drift-effect"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-wave-200/30 blur-[150px] bg-drift-effect" style="animation-delay: 4s;"></div>
+        <div class="absolute top-[30%] right-[20%] w-[400px] h-[400px] rounded-full bg-sky-100/20 blur-[110px] bg-drift-effect" style="animation-delay: 7s;"></div>
+    </div>
+
+    <!-- 헤더 영역 -->
+    <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 glass-light border-b border-wave-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center space-x-2">
+                <span class="text-2xl font-black bg-gradient-to-r from-wave-700 to-wave-500 bg-clip-text text-transparent tracking-tight">KIM RAEWON</span>
+                <span class="text-xs px-2 py-0.5 bg-wave-100 text-wave-700 rounded-md font-bold border border-wave-200 uppercase tracking-widest">Planner</span>
+            </a>
+            
+            <!-- Desktop Nav Menu -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-semibold text-abyss-800">
+                <a href="#about" class="hover:text-wave-600 transition-colors">소개</a>
+                <a href="#competency" class="hover:text-wave-600 transition-colors">핵심역량</a>
+                <a href="#techstack" class="hover:text-wave-600 transition-colors">기술스택</a>
+                <a href="#academic" class="hover:text-wave-600 transition-colors">이수과목 & 스펙</a>
+                <a href="#experience" class="hover:text-wave-600 transition-colors">현장경험</a>
+                <a href="#playground" class="hover:text-wave-600 transition-colors">기획 놀이터</a>
+                <a href="#roadmap" class="hover:text-wave-600 transition-colors">로드맵</a>
+            </nav>
+
+            <div class="hidden md:block">
+                <a href="#playground" class="px-5 py-2.5 rounded-full bg-gradient-to-r from-wave-600 to-wave-500 hover:from-wave-500 hover:to-wave-400 text-white text-xs font-bold shadow-ocean hover:shadow-wave-glow transition-all duration-300">
+                    <i class="fa-solid fa-gamepad mr-1.5"></i> 밸런서 시뮬레이터 실행
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-abyss-800 focus:outline-none p-2 rounded-lg hover:bg-wave-100/50">
+                <i class="fa-solid fa-bars text-xl" id="menu-icon"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Drawer Menu -->
+        <div id="mobile-menu" class="hidden md:hidden glass-light border-t border-wave-100 py-4 px-6 space-y-3">
+            <a href="#about" class="block text-abyss-800 hover:text-wave-600 font-semibold py-1 transition-all">소개</a>
+            <a href="#competency" class="block text-abyss-800 hover:text-wave-600 font-semibold py-1 transition-all">핵심역량</a>
+            <a href="#techstack" class="block text-abyss-800 hover:text-wave-600 font-semibold py-1 transition-all">기술스택</a>
+            <a href="#academic" class="block text-abyss-800 hover:text-wave-600 font-semibold py-1 transition-all">이수과목 & 스펙</a>
+            <a href="#experience" class="block text-abyss-800 hover:text-wave-600 font-semibold py-1 transition-all">현장경험</a>
+            <a href="#playground" class="block text-abyss-800 hover:text-wave-600 font-semibold py-1 transition-all">기획 놀이터</a>
+            <a href="#roadmap" class="block text-abyss-800 hover:text-wave-600 font-semibold py-1 transition-all">로드맵</a>
+            <a href="#playground" class="inline-block w-full text-center px-5 py-3 rounded-full bg-gradient-to-r from-wave-600 to-wave-500 text-white text-xs font-bold shadow-ocean">
+                <i class="fa-solid fa-gamepad mr-1.5"></i> 밸런서 시뮬레이터 실행
+            </a>
+        </div>
+    </header>
+
+    <!-- 히어로 섹션 -->
+    <section class="relative min-h-screen flex items-center justify-center pt-28 pb-16 px-4 overflow-hidden">
+        <div class="absolute inset-0 z-0 opacity-[0.4] bg-[radial-gradient(#bae6fd_1.2px,transparent_1.2px)] [background-size:32px_32px]"></div>
+        
+        <div class="relative z-10 max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <!-- Hero Description Column -->
+            <div class="lg:col-span-7 space-y-8 text-center lg:text-left">
+                <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-wave-100 border border-wave-200 text-xs text-wave-700 font-bold uppercase tracking-wider">
+                    <span class="flex h-2 w-2 relative">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-wave-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-wave-500"></span>
+                    </span>
+                    <span>System Game Planner</span>
+                </div>
+                
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-abyss-900">
+                    유저의 즐거움을 <br class="hidden sm:inline">
+                    <span class="bg-gradient-to-r from-wave-700 via-wave-600 to-wave-500 bg-clip-text text-transparent">논리적인 시스템</span>으로<br>
+                    정밀하게 조율하는 기획자
+                </h1>
+                
+                <p class="text-abyss-800/80 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed font-normal">
+                    안녕하십니까! 공학적 분석력과 청량한 감각의 기획력을 겸비한 준비된 게임 기획자 <strong class="text-wave-700 font-bold">김래원</strong>입니다. 컴퓨터소프트웨어공학을 공부하며 프로그래머와 유연하게 소통하고 개발 프로세스를 철저히 고려한 완벽한 밸런싱 구조를 설계합니다.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                    <a href="#about" class="w-full sm:w-auto px-8 py-4 rounded-full bg-gradient-to-r from-wave-600 to-wave-500 hover:from-wave-500 hover:to-wave-400 text-white font-bold text-sm shadow-ocean hover:shadow-wave-glow transform hover:-translate-y-0.5 transition-all duration-300 text-center">
+                        포트폴리오 자세히 보기
+                    </a>
+                    <a href="#playground" class="w-full sm:w-auto px-8 py-4 rounded-full bg-white hover:bg-salt-100 border border-wave-200 text-wave-700 font-bold text-sm transition-all duration-300 text-center shadow-card-flat">
+                        <i class="fa-solid fa-compass mr-1.5 text-wave-500"></i> 기획력 검증 놀이터
+                    </a>
+                </div>
+            </div>
+
+            <!-- Hero Visual Profile Card Column -->
+            <div class="lg:col-span-5 flex justify-center">
+                <div class="relative w-72 h-96 sm:w-80 sm:h-[420px] rounded-3xl p-4 bg-white border border-wave-100 shadow-ocean transform rotate-1 hover:rotate-0 transition-all duration-500 group">
+                    <div class="absolute inset-0 rounded-3xl bg-gradient-to-tr from-wave-200/20 to-wave-100/20 opacity-60 group-hover:opacity-100 transition-opacity"></div>
+                    
+                    <div class="w-full h-full rounded-2xl bg-gradient-to-b from-white to-salt-100 border border-salt-200 overflow-hidden flex flex-col items-center justify-center relative p-6">
+                        <div class="relative w-36 h-36 mb-6 rounded-full bg-gradient-to-br from-wave-500 to-wave-600 flex items-center justify-center shadow-lg">
+                            <i class="fa-solid fa-anchor text-5xl text-white"></i>
+                            <div class="absolute bottom-1 right-1 w-6 h-6 rounded-full bg-point-yellow border-4 border-white flex items-center justify-center">
+                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-point-yellow opacity-75"></span>
+                            </div>
+                        </div>
+
+                        <h3 class="text-2xl font-bold text-abyss-900 mb-1 tracking-wide">김래원</h3>
+                        <p class="text-sm text-wave-600 font-medium mb-6">동양미래대학교 1학년</p>
+                        
+                        <div class="w-full space-y-3 pt-6 border-t border-salt-200 text-xs text-abyss-800">
+                            <div class="flex justify-between">
+                                <span class="text-slate-400 font-medium">Major</span>
+                                <span class="font-mono font-bold text-abyss-900">Computer Software Eng.</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-slate-400 font-medium">Focus</span>
+                                <span class="text-wave-600 font-bold">Game System Planning</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-slate-400 font-medium">Traits</span>
+                                <span class="text-sky-600 font-semibold">Dev-Friendly Mindset</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 소개 섹션 -->
+    <section id="about" class="py-24 px-4 relative border-t border-wave-100 bg-white">
+        <div class="max-w-6xl mx-auto space-y-16">
+            <!-- Header Section -->
+            <div class="text-center max-w-3xl mx-auto space-y-4">
+                <h2 class="text-xs uppercase tracking-widest text-wave-500 font-bold">INTRODUCING ME</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold text-abyss-900">나를 소개합니다</p>
+                <div class="h-1.5 w-12 bg-wave-500 mx-auto rounded-full"></div>
+            </div>
+
+            <!-- Profile Info Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+                <!-- Personal Details Card -->
+                <div class="bg-salt-50 p-8 rounded-2xl border border-wave-100 flex flex-col justify-between space-y-6 shadow-card-flat">
+                    <div class="space-y-4">
+                        <h3 class="text-xl font-bold text-abyss-900 flex items-center">
+                            <i class="fa-solid fa-address-card text-wave-500 mr-2.5"></i> 기본 인적사항 & 이력
+                        </h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            "공학적 논리력과 창의적인 기획력을 겸비한, 준비된 게임 기획자 김래원입니다."
+                        </p>
+                    </div>
+
+                    <div class="space-y-4 pt-4 border-t border-salt-200 text-sm">
+                        <div class="flex items-center justify-between p-3 rounded-lg bg-white hover:bg-wave-50/50 transition-colors border border-salt-200">
+                            <span class="text-slate-500 font-medium">성명</span>
+                            <span class="text-abyss-900 font-bold">김래원 (Kim Rae Won)</span>
+                        </div>
+                        <div class="flex items-center justify-between p-3 rounded-lg bg-white hover:bg-wave-50/50 transition-colors border border-salt-200">
+                            <span class="text-slate-500 font-medium">소속 학과</span>
+                            <span class="text-wave-700 font-bold">동양미래대학교 컴퓨터소프트웨어공학과 (1학년)</span>
+                        </div>
+                        <div class="flex items-center justify-between p-3 rounded-lg bg-white hover:bg-wave-50/50 transition-colors border border-salt-200">
+                            <span class="text-slate-500 font-medium">학력 정보</span>
+                            <span class="text-slate-700">2026.03 ~ 현재 | 전공 심화 과정 이수 중</span>
+                        </div>
+                        <div class="flex items-center justify-between p-3 rounded-lg bg-white hover:bg-wave-50/50 transition-colors border border-salt-200">
+                            <span class="text-slate-500 font-medium">고교 이력</span>
+                            <span class="text-slate-700">다수의 게임 및 앱 개발 공모전 기획 부문 참여</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Holland Test Results Card -->
+                <div class="bg-salt-50 p-8 rounded-2xl border border-wave-100 flex flex-col justify-between space-y-6 shadow-card-flat">
+                    <div class="space-y-4">
+                        <h3 class="text-xl font-bold text-abyss-900 flex items-center">
+                            <i class="fa-solid fa-compass text-wave-500 mr-2.5"></i> 워크넷 홀랜드(Holland) 진로검사
+                        </h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            독창적인 아이디어를 체계적인 수치와 문서로 시각화하는 균형 잡힌 기획자 자질을 가지고 있습니다.
+                        </p>
+                    </div>
+
+                    <!-- Chart Visual representation -->
+                    <div class="py-4 space-y-5">
+                        <div>
+                            <div class="flex justify-between items-center text-xs text-abyss-800 mb-1.5">
+                                <span class="font-bold flex items-center">
+                                    <span class="w-3 h-3 bg-wave-500 rounded-full mr-2"></span> C (관습형 - Conventional)
+                                </span>
+                                <span class="text-slate-500 text-[11px]">데이터 분석 및 체계적 계획 수립 선호</span>
+                                <span class="text-wave-600 font-mono font-black text-right">1순위</span>
+                            </div>
+                            <div class="w-full bg-salt-200 h-3 rounded-full overflow-hidden">
+                                <div class="bg-gradient-to-r from-wave-600 to-wave-400 h-full w-[90%] rounded-full shadow-wave-glow"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between items-center text-xs text-abyss-800 mb-1.5">
+                                <span class="font-bold flex items-center">
+                                    <span class="w-3 h-3 bg-point-yellow rounded-full mr-2"></span> A (예술형 - Artistic)
+                                </span>
+                                <span class="text-slate-500 text-[11px]">독창적인 아이디어와 세계관 창작 선호</span>
+                                <span class="text-amber-600 font-mono font-black text-right">2순위</span>
+                            </div>
+                            <div class="w-full bg-salt-200 h-3 rounded-full overflow-hidden">
+                                <div class="bg-gradient-to-r from-amber-400 to-yellow-300 h-full w-[80%] rounded-full"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-wave-50 border border-wave-200 text-xs text-wave-900 leading-relaxed font-medium">
+                        <strong class="text-wave-700 font-bold"><i class="fa-solid fa-yin-yang mr-1"></i> 창의성과 체계성의 골든 밸런스 (CA 유형):</strong> 예술형(A) 역량으로 기획의 독창성을 확보하고, 관습형(C) 역량으로 데이터와 게임 밸런스를 빈틈없이 마감합니다.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 핵심역량 섹션 -->
+    <section id="competency" class="py-24 px-4 bg-salt-100 border-t border-wave-100 relative">
+        <div class="max-w-6xl mx-auto space-y-16">
+            <div class="text-center max-w-3xl mx-auto space-y-4">
+                <h2 class="text-xs uppercase tracking-widest text-wave-500 font-bold">CORE COMPETENCIES</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold text-abyss-900">핵심 역량 및 관심 분야</p>
+                <div class="h-1.5 w-12 bg-wave-500 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Competency 1: Unity Dev -->
+                <div class="bg-white p-6 rounded-2xl border border-wave-100 ocean-card-hover transition-all duration-300 flex flex-col justify-between shadow-card-flat">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-xl bg-wave-50 border border-wave-200 flex items-center justify-center text-wave-500 text-2xl">
+                            <i class="fa-solid fa-gamepad"></i>
+                        </div>
+                        <h4 class="text-lg font-bold text-abyss-900">Unity 기반 팀 개발</h4>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            다양한 고교 한세톤 및 팀 프로젝트를 통해 실제 빌드 가능한 게임을 제작해 보며, 기획서 작성 프로세스와 타 직군 소통 방식을 마스터했습니다.
+                        </p>
+                    </div>
+                    <span class="text-xs text-wave-600 font-bold mt-6 block"><i class="fa-solid fa-circle-check mr-1 text-wave-500"></i> 실무 협업 프로세스 완수</span>
+                </div>
+
+                <!-- Competency 2: Audio/Composition -->
+                <div class="bg-white p-6 rounded-2xl border border-wave-100 ocean-card-hover transition-all duration-300 flex flex-col justify-between shadow-card-flat">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-xl bg-wave-50 border border-wave-200 flex items-center justify-center text-wave-500 text-2xl">
+                            <i class="fa-solid fa-wave-square"></i>
+                        </div>
+                        <h4 class="text-lg font-bold text-abyss-900">Synthesizer V & 사운드 기획</h4>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            보컬 신디사이저 툴과 가상악기 지식을 활용해 게임의 독창적인 분위기와 몰입을 극대화할 수 있는 BGM 기획 및 연출 설계를 주도합니다.
+                        </p>
+                    </div>
+                    <span class="text-xs text-wave-600 font-bold mt-6 block"><i class="fa-solid fa-circle-check mr-1 text-wave-500"></i> 오리지널 사운드 디렉션 연구</span>
+                </div>
+
+                <!-- Competency 3: System Design -->
+                <div class="bg-white p-6 rounded-2xl border border-wave-100 ocean-card-hover transition-all duration-300 flex flex-col justify-between shadow-card-flat">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-xl bg-wave-50 border border-wave-200 flex items-center justify-center text-wave-500 text-2xl">
+                            <i class="fa-solid fa-calculator"></i>
+                        </div>
+                        <h4 class="text-lg font-bold text-abyss-900">시스템 설계 & 트렌드 분석</h4>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            수학적이고 정량화된 시스템 분석을 수행하며 PlayX4, AGF 등 오프라인 마켓 트렌드 조사를 통해 최신 BM과 유저 타겟층을 예밀하게 분석합니다.
+                        </p>
+                    </div>
+                    <span class="text-xs text-wave-600 font-bold mt-6 block"><i class="fa-solid fa-circle-check mr-1 text-wave-500"></i> 정량적 기획력 보유</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 기술스택 섹션 -->
+    <section id="techstack" class="py-24 px-4 bg-white border-t border-wave-100 relative">
+        <div class="max-w-6xl mx-auto space-y-16">
+            <div class="text-center max-w-3xl mx-auto space-y-4">
+                <h2 class="text-xs uppercase tracking-widest text-wave-500 font-bold">TECHNICAL SKILLS</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold text-abyss-900">개발 친화적 기획자의 기술 스택</p>
+                <p class="text-slate-600 text-sm max-w-xl mx-auto">컴퓨터소프트웨어공학 기반의 튼튼한 기술 이해도를 바탕으로, 프로그래머와의 원활한 협업과 논리적인 기획 구현이 가능합니다.</p>
+                <div class="h-1.5 w-12 bg-wave-500 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Engine & Frameworks -->
+                <div class="bg-salt-50 p-6 rounded-2xl border border-wave-100 shadow-card-flat space-y-6">
+                    <h3 class="text-lg font-bold text-abyss-900 flex items-center border-b border-salt-200 pb-3">
+                        <i class="fa-solid fa-cubes text-wave-600 mr-2.5"></i> Game Engines
+                    </h3>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between text-xs font-bold text-slate-700 mb-1.5">
+                                <span>Unity (C#)</span>
+                                <span class="text-wave-600">Advanced</span>
+                            </div>
+                            <div class="w-full bg-salt-200 h-2 rounded-full overflow-hidden">
+                                <div class="bg-gradient-to-r from-wave-600 to-wave-400 h-full w-[85%] rounded-full"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs font-bold text-slate-700 mb-1.5">
+                                <span>Unreal Engine (C++)</span>
+                                <span class="text-slate-500">Basic & Studying</span>
+                            </div>
+                            <div class="w-full bg-salt-200 h-2 rounded-full overflow-hidden">
+                                <div class="bg-gradient-to-r from-wave-400 to-sky-300 h-full w-[45%] rounded-full"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Programming Languages -->
+                <div class="bg-salt-50 p-6 rounded-2xl border border-wave-100 shadow-card-flat space-y-6">
+                    <h3 class="text-lg font-bold text-abyss-900 flex items-center border-b border-salt-200 pb-3">
+                        <i class="fa-solid fa-code text-wave-600 mr-2.5"></i> Languages & Structures
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1.5 bg-white border border-wave-200 text-xs font-bold text-wave-700 rounded-lg flex items-center">
+                                <span class="w-2 h-2 rounded-full bg-blue-500 mr-1.5"></span> C#
+                            </span>
+                            <span class="px-3 py-1.5 bg-white border border-wave-200 text-xs font-bold text-wave-700 rounded-lg flex items-center">
+                                <span class="w-2 h-2 rounded-full bg-indigo-500 mr-1.5"></span> C++ / C
+                            </span>
+                            <span class="px-3 py-1.5 bg-white border border-wave-200 text-xs font-bold text-wave-700 rounded-lg flex items-center">
+                                <span class="w-2 h-2 rounded-full bg-yellow-500 mr-1.5"></span> Python
+                            </span>
+                            <span class="px-3 py-1.5 bg-white border border-wave-200 text-xs font-bold text-wave-700 rounded-lg flex items-center">
+                                <span class="w-2 h-2 rounded-full bg-point-red mr-1.5"></span> Lua
+                            </span>
+                            <span class="px-3 py-1.5 bg-white border border-wave-200 text-xs font-bold text-wave-700 rounded-lg flex items-center">
+                                <span class="w-2 h-2 rounded-full bg-emerald-500 mr-1.5"></span> Java
+                            </span>
+                        </div>
+                        <div class="pt-2 border-t border-salt-200 text-xs text-slate-600 leading-relaxed">
+                            <p class="font-bold text-abyss-900 mb-1"><i class="fa-solid fa-network-wired text-wave-600 mr-1"></i> 자료구조 & 알고리즘 이해</p>
+                            메모리 할당 및 객체 지향 프로그래밍에 대한 높은 이해도를 보유하고 있어 기획 시 최적화와 메모리 누수 방지 설계가 가능합니다.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Web & Collaboration Tools -->
+                <div class="bg-salt-50 p-6 rounded-2xl border border-wave-100 shadow-card-flat space-y-6">
+                    <h3 class="text-lg font-bold text-abyss-900 flex items-center border-b border-salt-200 pb-3">
+                        <i class="fa-solid fa-share-nodes text-wave-600 mr-2.5"></i> Web & DevTools
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1.5 bg-white border border-wave-200 text-xs font-bold text-slate-700 rounded-lg">HTML5 / CSS3</span>
+                            <span class="px-3 py-1.5 bg-white border border-wave-200 text-xs font-bold text-slate-700 rounded-lg">JavaScript</span>
+                            <span class="px-3 py-1.5 bg-white border border-wave-200 text-xs font-bold text-slate-700 rounded-lg">Git / GitHub</span>
+                            <span class="px-3 py-1.5 bg-white border border-wave-200 text-xs font-bold text-slate-700 rounded-lg">Slack / Discord</span>
+                        </div>
+                        <div class="pt-1.5 border-t border-salt-200 text-xs text-slate-600 leading-relaxed">
+                            <p class="font-bold text-abyss-900 mb-1"><i class="fa-solid fa-code-fork text-wave-600 mr-1"></i> Git 중심의 강력한 협업</p>
+                            브랜치 전략을 활용하여 타 직군과 무리 없이 저장소를 병합하고 주도적으로 기획 요소를 샌드박스에 병합해 나갑니다.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 이수과목 & 스펙 섹션 -->
+    <section id="academic" class="py-24 px-4 relative border-t border-wave-100 bg-salt-100">
+        <div class="max-w-6xl mx-auto space-y-16">
+            <div class="text-center max-w-3xl mx-auto space-y-4">
+                <h2 class="text-xs uppercase tracking-widest text-wave-500 font-bold">ACADEMIC & SPECIFICATIONS</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold text-abyss-900">이수 과목 및 기술 스펙</p>
+                <div class="h-1.5 w-12 bg-wave-500 mx-auto rounded-full"></div>
+            </div>
+
+            <!-- Tab Buttons (Reordered: High School first) -->
+            <div class="flex justify-center space-x-4 border-b border-salt-200 pb-1">
+                <button id="btn-high-courses" class="px-6 py-3 font-bold text-sm border-b-2 border-wave-500 text-wave-600 focus:outline-none transition-all">
+                    고교 주요 이수과목
+                </button>
+                <button id="btn-uni-courses" class="px-6 py-3 font-bold text-sm border-b-2 border-transparent text-slate-400 hover:text-abyss-900 focus:outline-none transition-all">
+                    동양미래대 이수과목
+                </button>
+                <button id="btn-certs" class="px-6 py-3 font-bold text-sm border-b-2 border-transparent text-slate-400 hover:text-abyss-900 focus:outline-none transition-all">
+                    보유 자격증 (Spec)
+                </button>
+            </div>
+
+            <!-- Tab Content: High School Courses Table (Now active by default, Status corrected to '이수 완료') -->
+            <div id="content-high-courses" class="block space-y-6">
+                <p class="text-slate-500 text-sm text-center">고등학교 3개년 게임 기획 및 소프트웨어 개발 전공 교과 이수 사항</p>
+                <div class="overflow-x-auto rounded-xl border border-wave-100 shadow-card-flat">
+                    <table class="w-full text-left border-collapse bg-white">
+                        <thead>
+                            <tr class="bg-salt-100 border-b border-wave-100 text-xs font-bold text-abyss-800 uppercase">
+                                <th class="px-6 py-4">과목군</th>
+                                <th class="px-6 py-4">과목명</th>
+                                <th class="px-6 py-4">학습 내용 및 기획자적 배양 역량</th>
+                                <th class="px-6 py-4 text-right">상태</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-salt-100 text-sm text-slate-700">
+                            <tr class="hover:bg-wave-50/30 transition-colors">
+                                <td class="px-6 py-4 font-bold text-cyan-600">게임 개발</td>
+                                <td class="px-6 py-4 font-bold text-abyss-900">게임프로그래밍</td>
+                                <td class="px-6 py-4 text-slate-600">Unity 및 Unreal 엔진의 라이프사이클 분석과 프로토타입 개발 기술 체득</td>
+                                <td class="px-6 py-4 text-right"><span class="px-2.5 py-1 rounded bg-wave-100 text-wave-700 text-xs font-bold border border-wave-200">이수 완료</span></td>
+                            </tr>
+                            <tr class="hover:bg-wave-50/30 transition-colors">
+                                <td class="px-6 py-4 font-bold text-cyan-600">빅데이터</td>
+                                <td class="px-6 py-4 font-bold text-abyss-900">빅데이터 분석</td>
+                                <td class="px-6 py-4 text-slate-600">Google Colab을 이용한 데이터 수집, 게임 잔존율 및 수치 분석 기초 지식 습득</td>
+                                <td class="px-6 py-4 text-right"><span class="px-2.5 py-1 rounded bg-wave-100 text-wave-700 text-xs font-bold border border-wave-200">이수 완료</span></td>
+                            </tr>
+                            <tr class="hover:bg-wave-50/30 transition-colors">
+                                <td class="px-6 py-4 font-bold text-cyan-600">메타버스</td>
+                                <td class="px-6 py-4 font-bold text-abyss-900">VR 콘텐츠 디자인</td>
+                                <td class="px-6 py-4 text-slate-600">Unity XR Interaction Toolkit을 활용한 인터랙티브 가상현실 게임 개발 실습</td>
+                                <td class="px-6 py-4 text-right"><span class="px-2.5 py-1 rounded bg-wave-100 text-wave-700 text-xs font-bold border border-wave-200">이수 완료</span></td>
+                            </tr>
+                            <tr class="hover:bg-wave-50/30 transition-colors">
+                                <td class="px-6 py-4 font-bold text-wave-600">게임 기획</td>
+                                <td class="px-6 py-4 font-bold text-abyss-900">게임기획</td>
+                                <td class="px-6 py-4 text-slate-600">세계관 설정, 캐릭터 모델링 설계 및 수치 테이블 설계를 아우르는 제안서 작성 학습</td>
+                                <td class="px-6 py-4 text-right"><span class="px-2.5 py-1 rounded bg-wave-100 text-wave-700 text-xs font-bold border border-wave-200">이수 완료</span></td>
+                            </tr>
+                            <tr class="hover:bg-wave-50/30 transition-colors">
+                                <td class="px-6 py-4 font-bold text-wave-600">게임 개발</td>
+                                <td class="px-6 py-4 font-bold text-abyss-900">게임콘텐츠제작</td>
+                                <td class="px-6 py-4 text-slate-600">팀별 역할 분담을 통한 오리지널 게임 제작 프로젝트 수행 및 퍼블리싱 실습</td>
+                                <td class="px-6 py-4 text-right"><span class="px-2.5 py-1 rounded bg-wave-100 text-wave-700 text-xs font-bold border border-wave-200">이수 완료</span></td>
+                            </tr>
+                            <tr class="hover:bg-wave-50/30 transition-colors">
+                                <td class="px-6 py-4 font-bold text-indigo-600">기초 공학</td>
+                                <td class="px-6 py-4 font-bold text-abyss-900">자료구조</td>
+                                <td class="px-6 py-4 text-slate-600">C언어를 응용해 스택, 큐, 트리 구조를 파악하고 알고리즘 효율성 최적화 이해</td>
+                                <td class="px-6 py-4 text-right"><span class="px-2.5 py-1 rounded bg-wave-100 text-wave-700 text-xs font-bold border border-wave-200">이수 완료</span></td>
+                            </tr>
+                            <tr class="hover:bg-wave-50/30 transition-colors">
+                                <td class="px-6 py-4 font-bold text-indigo-600">기초 공학</td>
+                                <td class="px-6 py-4 font-bold text-abyss-900">프로그래밍</td>
+                                <td class="px-6 py-4 text-slate-600">C언어 기초 구문 학습, 게임 루프(Game Loop) 제어 및 조건 처리 구조 학습</td>
+                                <td class="px-6 py-4 text-right"><span class="px-2.5 py-1 rounded bg-wave-100 text-wave-700 text-xs font-bold border border-wave-200">이수 완료</span></td>
+                            </tr>
+                            <tr class="hover:bg-wave-50/30 transition-colors">
+                                <td class="px-6 py-4 font-bold text-pink-600">그래픽스</td>
+                                <td class="px-6 py-4 font-bold text-abyss-900">컴퓨터 그래픽 / 디자인 일반</td>
+                                <td class="px-6 py-4 text-slate-600">시각 정보 레이아웃 및 2D 픽셀 아트, UI 에셋 가공을 위한 미학적 기초 함양</td>
+                                <td class="px-6 py-4 text-right"><span class="px-2.5 py-1 rounded bg-wave-100 text-wave-700 text-xs font-bold border border-wave-200">이수 완료</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Tab Content: University Courses Table (Now hidden by default, Status corrected to '이수') -->
+            <div id="content-uni-courses" class="hidden space-y-6">
+                <p class="text-slate-500 text-sm text-center">동양미래대학교 컴퓨터소프트웨어공학과 1학년 1학기 수료 과목</p>
+                <div class="overflow-x-auto rounded-xl border border-wave-100 shadow-card-flat">
+                    <table class="w-full text-left border-collapse bg-white">
+                        <thead>
+                            <tr class="bg-salt-100 border-b border-wave-100 text-xs font-bold text-abyss-800 uppercase">
+                                <th class="px-6 py-4">구분</th>
+                                <th class="px-6 py-4">과목명</th>
+                                <th class="px-6 py-4">주요 내용 및 역량</th>
+                                <th class="px-6 py-4 text-right">성적 상태</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-salt-100 text-sm text-slate-700">
+                            <tr class="hover:bg-wave-50/30 transition-colors">
+                                <td class="px-6 py-4 font-bold text-wave-600">전공</td>
+                                <td class="px-6 py-4 font-bold text-abyss-900">프로그래밍방법론</td>
+                                <td class="px-6 py-4 text-slate-600">Python 프로그래밍 기초, 알고리즘 및 시스템 순서도 설계</td>
+                                <td class="px-6 py-4 text-right"><span class="px-2.5 py-1 rounded bg-emerald-50 text-emerald-700 text-xs font-bold border border-emerald-200">이수</span></td>
+                            </tr>
+                            <tr class="hover:bg-wave-50/30 transition-colors">
+                                <td class="px-6 py-4 font-bold text-wave-600">전공</td>
+                                <td class="px-6 py-4 font-bold text-abyss-900">SW개발도구활용</td>
+                                <td class="px-6 py-4 text-slate-600">Git, GitHub, Discord 등을 활용한 소프트웨어 협업 프로세스 학습</td>
+                                <td class="px-6 py-4 text-right"><span class="px-2.5 py-1 rounded bg-emerald-50 text-emerald-700 text-xs font-bold border border-emerald-200">이수</span></td>
+                            </tr>
+                            <tr class="hover:bg-wave-50/30 transition-colors">
+                                <td class="px-6 py-4 font-bold text-wave-600">전공</td>
+                                <td class="px-6 py-4 font-bold text-abyss-900">웹프로그래밍기초</td>
+                                <td class="px-6 py-4 text-slate-600">HTML, CSS, JavaScript (프론트엔드 기틀 및 기본 기획 구현력 배양)</td>
+                                <td class="px-6 py-4 text-right"><span class="px-2.5 py-1 rounded bg-emerald-50 text-emerald-700 text-xs font-bold border border-emerald-200">이수</span></td>
+                            </tr>
+                            <tr class="hover:bg-wave-50/30 transition-colors">
+                                <td class="px-6 py-4 font-bold text-wave-600">전공</td>
+                                <td class="px-6 py-4 font-bold text-abyss-900">컴퓨터공학기초</td>
+                                <td class="px-6 py-4 text-slate-600">하드웨어 논리 회로 설계 기초 및 운영체제 기반 이론 이해</td>
+                                <td class="px-6 py-4 text-right"><span class="px-2.5 py-1 rounded bg-emerald-50 text-emerald-700 text-xs font-bold border border-emerald-200">이수</span></td>
+                            </tr>
+                            <tr class="hover:bg-wave-50/30 transition-colors">
+                                <td class="px-6 py-4 font-bold text-wave-600">전공</td>
+                                <td class="px-6 py-4 font-bold text-abyss-900">파이썬프로그래밍</td>
+                                <td class="px-6 py-4 text-slate-600">Python 데이터 가공, 제어문 및 대규모 연산 스크립트 작성 실습</td>
+                                <td class="px-6 py-4 text-right"><span class="px-2.5 py-1 rounded bg-emerald-50 text-emerald-700 text-xs font-bold border border-emerald-200">이수</span></td>
+                            </tr>
+                            <tr class="hover:bg-wave-50/30 transition-colors">
+                                <td class="px-6 py-4 font-bold text-slate-500">교양필수</td>
+                                <td class="px-6 py-4 font-bold text-abyss-900">진로설계와실천인성</td>
+                                <td class="px-6 py-4 text-slate-600">미래 가치와 진로 로드맵 탐구, 직업윤리 및 실질적 자기계발 기획</td>
+                                <td class="px-6 py-4 text-right"><span class="px-2.5 py-1 rounded bg-emerald-50 text-emerald-700 text-xs font-bold border border-emerald-200">이수</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Tab Content: Certifications Info -->
+            <div id="content-certs" class="hidden space-y-6">
+                <p class="text-slate-500 text-sm text-center">오피스 문서 활용부터 디자인적 도구 스킬까지 탄탄하게 갖춘 스펙셋</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Cert Item 1 -->
+                    <div class="bg-white p-5 rounded-xl border border-wave-100 flex items-center space-x-4 shadow-card-flat">
+                        <div class="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-600 text-xl font-black">A</div>
+                        <div>
+                            <h5 class="text-abyss-900 font-bold text-sm">ITQ 파워포인트 / 한글</h5>
+                            <p class="text-xs text-slate-500">급수: A등급 (KPC 한국생산성본부)</p>
+                        </div>
+                    </div>
+                    <!-- Cert Item 2 -->
+                    <div class="bg-white p-5 rounded-xl border border-wave-100 flex items-center space-x-4 shadow-card-flat">
+                        <div class="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-600 text-xl font-black">B</div>
+                        <div>
+                            <h5 class="text-abyss-900 font-bold text-sm">ITQ 엑셀</h5>
+                            <p class="text-xs text-slate-500">급수: B등급 (KPC 한국생산성본부)</p>
+                        </div>
+                    </div>
+                    <!-- Cert Item 3 -->
+                    <div class="bg-white p-5 rounded-xl border border-wave-100 flex items-center space-x-4 shadow-card-flat">
+                        <div class="w-10 h-10 rounded-lg bg-wave-100 border border-wave-200 flex items-center justify-center text-wave-600 text-lg"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                        <div>
+                            <h5 class="text-abyss-900 font-bold text-sm">GTQ 그래픽기술자격</h5>
+                            <p class="text-xs text-slate-500">급수: 1급 포토샵 (KPC 한국생산성본부)</p>
+                        </div>
+                    </div>
+                    <!-- Cert Item 4 -->
+                    <div class="bg-white p-5 rounded-xl border border-wave-100 flex items-center space-x-4 shadow-card-flat">
+                        <div class="w-10 h-10 rounded-lg bg-wave-100 border border-wave-200 flex items-center justify-center text-wave-600 text-lg"><i class="fa-solid fa-laptop-code"></i></div>
+                        <div>
+                            <h5 class="text-abyss-900 font-bold text-sm">정보처리기능사</h5>
+                            <p class="text-xs text-slate-500">단계: 필기 합격 (한국산업인력공단)</p>
+                        </div>
+                    </div>
+                    <!-- Cert Item 5 -->
+                    <div class="bg-white p-5 rounded-xl border border-wave-100 flex items-center space-x-4 shadow-card-flat">
+                        <div class="w-10 h-10 rounded-lg bg-wave-100 border border-wave-200 flex items-center justify-center text-wave-600 text-lg"><i class="fa-solid fa-palette"></i></div>
+                        <div>
+                            <h5 class="text-abyss-900 font-bold text-sm">컴퓨터그래픽스운용기능사</h5>
+                            <p class="text-xs text-slate-500">단계: 필기 합격 (한국산업인력공단)</p>
+                        </div>
+                    </div>
+                    <!-- Cert Item 6 -->
+                    <div class="bg-white p-5 rounded-xl border border-wave-100 flex items-center space-x-4 shadow-card-flat">
+                        <div class="w-10 h-10 rounded-lg bg-point-yellow/10 border border-point-yellow/30 flex items-center justify-center text-amber-600 text-lg"><i class="fa-solid fa-language"></i></div>
+                        <div>
+                            <h5 class="text-abyss-900 font-bold text-sm">JLPT N3</h5>
+                            <p class="text-xs text-slate-500">목표: 2026 하반기 응시 및 취득 준비</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 현장경험 섹션 -->
+    <section id="experience" class="py-24 px-4 bg-white border-t border-wave-100 relative">
+        <div class="max-w-6xl mx-auto space-y-16">
+            <div class="text-center max-w-3xl mx-auto space-y-4">
+                <h2 class="text-xs uppercase tracking-widest text-wave-500 font-bold">ACTIVITIES & EXPERIENCE</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold text-abyss-900">대회 이력 및 마켓 분석 현장 활동</p>
+                <div class="h-1.5 w-12 bg-wave-500 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Contest History (Left) -->
+                <div class="space-y-6">
+                    <h3 class="text-xl font-bold text-abyss-900 flex items-center">
+                        <i class="fa-solid fa-trophy text-amber-500 mr-2.5"></i> 고교 및 대외 공모전 이력
+                    </h3>
+                    <div class="space-y-4">
+                        <!-- Contest Item -->
+                        <div class="p-5 rounded-xl bg-salt-50 border border-wave-100 hover:border-wave-400 transition-all shadow-card-flat">
+                            <span class="text-xs font-mono text-wave-600 font-bold">2023</span>
+                            <h4 class="text-base font-bold text-abyss-900 mt-1">고교디자인경진대회 한세톤</h4>
+                            <p class="text-xs text-slate-500 mt-1">한국폴리텍대학 주관 / 개인 부문 장려상 수상, 게임 UI/UX 설계 참여</p>
+                        </div>
+                        <div class="p-5 rounded-xl bg-salt-50 border border-wave-100 hover:border-wave-400 transition-all shadow-card-flat">
+                            <span class="text-xs font-mono text-wave-600 font-bold">2024</span>
+                            <h4 class="text-base font-bold text-abyss-900 mt-1">KWC 전국 중고교생 게임 공모전 (게임기획한마당)</h4>
+                            <p class="text-xs text-slate-500 mt-1">우송대학교, 신구대학교 등 주관 / 팀 메인 기획자로서 출전 (기획 전반 조율)</p>
+                        </div>
+                        <div class="p-5 rounded-xl bg-salt-50 border border-wave-100 hover:border-wave-400 transition-all shadow-card-flat">
+                            <span class="text-xs font-mono text-wave-600 font-bold">2024</span>
+                            <h4 class="text-base font-bold text-abyss-900 mt-1">스마틴 앱 챌린지 (STAC)</h4>
+                            <p class="text-xs text-slate-500 mt-1">중소벤처기업부, SK플래닛 주관 / 게임 기획 파트 리더로 출전</p>
+                        </div>
+                        <div class="p-5 rounded-xl bg-salt-50 border border-wave-100 hover:border-wave-400 transition-all shadow-card-flat">
+                            <span class="text-xs font-mono text-wave-600 font-bold">2023 - 2025</span>
+                            <h4 class="text-base font-bold text-abyss-900 mt-1">교내 한세톤 연속 참여</h4>
+                            <p class="text-xs text-slate-500 mt-1">한세사이버보안고등학교 주관 / 게임 디자인 및 주요 게임플레이 룰 기획</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Field Activities (Right) -->
+                <div class="space-y-6">
+                    <h3 class="text-xl font-bold text-abyss-900 flex items-center">
+                        <i class="fa-solid fa-shoe-prints text-wave-500 mr-2.5"></i> 현장 체험 및 유저 분석 활동
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="p-5 rounded-xl bg-salt-50 border border-wave-100 flex items-start space-x-4 shadow-card-flat">
+                            <div class="w-10 h-10 rounded-full bg-wave-50 flex items-center justify-center text-wave-500 shrink-0 border border-wave-200">
+                                <i class="fa-solid fa-gamepad"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-base font-bold text-abyss-900">PlayX4 인디 게임 마켓 분석 (2023 - 2025)</h4>
+                                <p class="text-xs text-slate-500 mt-1">경기콘텐츠진흥원, KINTEX / 매년 인디게임 신작을 체험하며 서브컬처 유저층 트렌드 리포트를 역기획 측면에서 모니터링합니다.</p>
+                            </div>
+                        </div>
+
+                        <div class="p-5 rounded-xl bg-salt-50 border border-wave-100 flex items-start space-x-4 shadow-card-flat">
+                            <div class="w-10 h-10 rounded-full bg-wave-50 flex items-center justify-center text-wave-500 shrink-0 border border-wave-200">
+                                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-base font-bold text-abyss-900">AGF (Anime X Game Festival) 시장 모니터링</h4>
+                                <p class="text-xs text-slate-500 mt-1">서브컬처 오프라인 팬덤의 유저 심리학을 파악하고 비즈니스 모델(BM), 고도화된 게임 UI 연출의 최신 사례를 분석합니다.</p>
+                            </div>
+                        </div>
+
+                        <div class="p-5 rounded-xl bg-salt-50 border border-wave-100 flex items-start space-x-4 shadow-card-flat">
+                            <div class="w-10 h-10 rounded-full bg-wave-50 flex items-center justify-center text-wave-500 shrink-0 border border-wave-200">
+                                <i class="fa-solid fa-users"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-base font-bold text-abyss-900">HGDC 게임 기획 컨퍼런스 참가</h4>
+                                <p class="text-xs text-slate-500 mt-1">현업 베테랑들의 프로젝트 노하우와 유저 소통 피드백 실사례를 분석하며 기획의 현실성과 정량적 지표를 체득합니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 기획 놀이터 섹션 -->
+    <section id="playground" class="py-24 px-4 relative border-t border-wave-100 bg-salt-100 overflow-hidden">
+        <div class="max-w-6xl mx-auto space-y-12">
+            <div class="text-center max-w-3xl mx-auto space-y-4">
+                <span class="px-3 py-1 rounded-full bg-wave-100 border border-wave-200 text-xs text-wave-700 font-bold uppercase tracking-wider">SYSTEM BALANCER TOOL</span>
+                <p class="text-3xl sm:text-4xl font-extrabold text-abyss-900">System Design Playground</p>
+                <p class="text-slate-600 text-sm max-w-xl mx-auto">
+                    게임 기획자 김래원의 핵심 주특기인 **수학적 전투 수치 밸런서**를 직접 작동해 볼 수 있습니다. 
+                    아래 슬라이더를 조정하여 전투 유지율과 최적의 TTK(Time to Kill)를 산출해 보세요!
+                </p>
+            </div>
+
+            <!-- Balancer Dashboard Widget -->
+            <div class="bg-white p-6 sm:p-10 rounded-3xl border border-wave-200 max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 items-stretch relative shadow-ocean">
+                <!-- Deep Ocean Navy Control Panel (Left Column) -->
+                <div class="md:col-span-7 space-y-6 bg-salt-50 p-6 rounded-2xl border border-wave-100">
+                    <h4 class="text-lg font-bold text-abyss-900 flex items-center">
+                        <i class="fa-solid fa-sliders text-wave-600 mr-2"></i> 전장 기본 수치 (RPG 전투 대입)
+                    </h4>
+
+                    <!-- Param 1 -->
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-xs font-bold text-slate-700">
+                            <span>플레이어 공격력 (Player ATK)</span>
+                            <span id="val-p-atk" class="font-mono text-wave-600 font-black">50</span>
+                        </div>
+                        <input type="range" id="input-p-atk" min="10" max="150" value="50" class="w-full accent-wave-500 bg-slate-200 h-2 rounded-lg appearance-none cursor-pointer">
+                    </div>
+
+                    <!-- Param 2 -->
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-xs font-bold text-slate-700">
+                            <span>플레이어 공격 속도 (ATK Speed / Sec)</span>
+                            <span id="val-p-spd" class="font-mono text-wave-600 font-black">1.5</span>
+                        </div>
+                        <input type="range" id="input-p-spd" min="0.5" max="5.0" step="0.1" value="1.5" class="w-full accent-wave-500 bg-slate-200 h-2 rounded-lg appearance-none cursor-pointer">
+                    </div>
+
+                    <!-- Param 3 -->
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-xs font-bold text-slate-700">
+                            <span>몬스터 총 체력 (Monster HP)</span>
+                            <span id="val-m-hp" class="font-mono text-wave-600 font-black">500</span>
+                        </div>
+                        <input type="range" id="input-m-hp" min="100" max="1500" value="500" class="w-full accent-wave-500 bg-slate-200 h-2 rounded-lg appearance-none cursor-pointer">
+                    </div>
+
+                    <!-- Param 4 -->
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-xs font-bold text-slate-700">
+                            <span>몬스터 공격력 (Monster ATK)</span>
+                            <span id="val-m-atk" class="font-mono text-point-red font-black">30</span>
+                        </div>
+                        <input type="range" id="input-m-atk" min="5" max="100" value="30" class="w-full accent-point-red bg-slate-200 h-2 rounded-lg appearance-none cursor-pointer">
+                    </div>
+
+                    <button id="btn-simulate" class="w-full py-4 rounded-xl bg-gradient-to-r from-wave-600 to-wave-500 hover:from-wave-500 hover:to-wave-400 text-white font-bold text-sm shadow-ocean transition-all">
+                        실시간 밸런스 연산 & 전장 매트릭스 실행
+                    </button>
+                </div>
+
+                <!-- Deep Abyss Blue Screen Console (Right Column) -->
+                <div class="md:col-span-5 bg-abyss-950 rounded-2xl border border-white/5 p-6 flex flex-col justify-between space-y-6 text-white shadow-inner">
+                    <div>
+                        <div class="flex items-center space-x-2 mb-4">
+                            <span class="w-2.5 h-2.5 rounded-full bg-point-yellow animate-pulse"></span>
+                            <h4 class="text-xs font-mono font-bold uppercase tracking-widest text-slate-400">Live Telemetry Panel</h4>
+                        </div>
+                        
+                        <div class="space-y-4">
+                            <!-- Output 1 -->
+                            <div class="p-4 bg-abyss-900 rounded-xl border border-white/5 flex items-center justify-between">
+                                <span class="text-xs text-slate-400">Time-To-Kill (TTK)</span>
+                                <span id="out-ttk" class="text-2xl font-mono font-black text-wave-400">6.67s</span>
+                            </div>
+                            <!-- Output 2 -->
+                            <div class="p-4 bg-abyss-900 rounded-xl border border-white/5 flex items-center justify-between">
+                                <span class="text-xs text-slate-400">플레이어 예상 생존율</span>
+                                <span id="out-survival" class="text-2xl font-mono font-black text-emerald-400">100%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- System Insight Console -->
+                    <div class="p-4 bg-[#060b17] rounded-xl border border-wave-500/20">
+                        <span class="text-[10px] font-mono text-wave-400 font-bold uppercase tracking-widest block mb-1">
+                            <i class="fa-solid fa-code-pull-request mr-1 text-point-yellow"></i> System Logic Advisor
+                        </span>
+                        <p id="system-insight" class="text-xs text-slate-300 leading-relaxed font-light">
+                            현재 수치는 전형적인 초반 튜토리얼 수준의 안정적인 난이도입니다. 유저의 피로도가 매우 적습니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 미래 로드맵 섹션 -->
+    <section id="roadmap" class="py-24 px-4 bg-white border-t border-wave-100 relative">
+        <div class="max-w-6xl mx-auto space-y-16">
+            <div class="text-center max-w-3xl mx-auto space-y-4">
+                <h2 class="text-xs uppercase tracking-widest text-wave-500 font-bold">ROADMAP TO FUTURE</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold text-abyss-900">미래 성장을 향한 순차적 마일스톤</p>
+                <p class="text-slate-500 text-sm max-w-lg mx-auto">글로벌 웰메이드 디렉터가 되기 위한 구체적이고 체계적인 로드맵입니다.</p>
+                <div class="h-1.5 w-12 bg-wave-500 mx-auto rounded-full"></div>
+            </div>
+
+            <!-- Visual Horizontal/Vertical Timeline -->
+            <div class="relative border-l-2 border-wave-300 ml-4 md:ml-0 md:border-l-0 md:grid md:grid-cols-4 gap-6 md:before:absolute md:before:top-1/2 md:before:left-0 md:before:w-full md:before:h-[2px] md:before:bg-wave-300 md:before:z-0">
+                
+                <!-- Milestone 1 -->
+                <div class="relative pl-8 md:pl-0 md:text-center space-y-3 z-10 pb-8 md:pb-0">
+                    <div class="absolute left-[-9px] top-1.5 md:relative md:left-auto md:top-auto w-4 h-4 rounded-full bg-wave-500 border-4 border-salt-100 mx-auto md:mb-4 shadow-wave-glow"></div>
+                    <div>
+                        <span class="text-[11px] px-2.5 py-0.5 bg-wave-100 text-wave-700 rounded-full font-bold border border-wave-200">초석 다지기 (2026-2027)</span>
+                        <h4 class="text-base font-bold text-abyss-900 mt-2">동양미래대 학업 및 스펙 구축</h4>
+                        <p class="text-xs text-slate-600 mt-1 max-w-xs md:mx-auto leading-relaxed">소프트웨어 지식 습득, 정보처리기능사 취득 및 JLPT N3 자격 확보 완료.</p>
+                    </div>
+                </div>
+
+                <!-- Milestone 2 -->
+                <div class="relative pl-8 md:pl-0 md:text-center space-y-3 z-10 pb-8 md:pb-0">
+                    <div class="absolute left-[-9px] top-1.5 md:relative md:left-auto md:top-auto w-4 h-4 rounded-full bg-wave-400 border-4 border-salt-100 mx-auto md:mb-4 shadow-wave-glow"></div>
+                    <div>
+                        <span class="text-[11px] px-2.5 py-0.5 bg-wave-100 text-wave-700 rounded-full font-bold border border-wave-200">역량 폭발 (2028-2029)</span>
+                        <h4 class="text-base font-bold text-abyss-900 mt-2">대규모 게임잼 및 공모전 석권</h4>
+                        <p class="text-xs text-slate-600 mt-1 max-w-xs md:mx-auto leading-relaxed">복학 후 캡스톤 프로젝트 완수, 고도화된 기획안 제작 및 유저 피드백 경험 확대.</p>
+                    </div>
+                </div>
+
+                <!-- Milestone 3 -->
+                <div class="relative pl-8 md:pl-0 md:text-center space-y-3 z-10 pb-8 md:pb-0">
+                    <div class="absolute left-[-9px] top-1.5 md:relative md:left-auto md:top-auto w-4 h-4 rounded-full bg-wave-400 border-4 border-salt-100 mx-auto md:mb-4"></div>
+                    <div>
+                        <span class="text-[11px] px-2.5 py-0.5 bg-wave-100 text-wave-700 rounded-full font-bold border border-wave-200">실무 진출 (2030)</span>
+                        <h4 class="text-base font-bold text-abyss-900 mt-2">국내외 메이저 게임사 기획/QA 입사</h4>
+                        <p class="text-xs text-slate-600 mt-1 max-w-xs md:mx-auto leading-relaxed">스타트업 및 대기업 인턴십 수료 후 정량적 분석 능력을 겸비한 시스템 기획자 전입.</p>
+                    </div>
+                </div>
+
+                <!-- Milestone 4 -->
+                <div class="relative pl-8 md:pl-0 md:text-center space-y-3 z-10">
+                    <div class="absolute left-[-9px] top-1.5 md:relative md:left-auto md:top-auto w-4 h-4 rounded-full bg-point-yellow border-4 border-salt-100 mx-auto md:mb-4 shadow-ocean"></div>
+                    <div>
+                        <span class="text-[11px] px-2.5 py-0.5 bg-amber-100 text-amber-700 rounded-full font-bold border border-amber-200">글로벌 비전 (Future)</span>
+                        <h4 class="text-base font-bold text-abyss-900 mt-2">웰메이드 대표 디렉터 등극</h4>
+                        <p class="text-xs text-slate-600 mt-1 max-w-xs md:mx-auto leading-relaxed">시스템, 사운드, 유저 심리를 완벽히 설계한 글로벌 밀리언셀러 프로젝트 총괄 총지휘.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-16 px-4 bg-abyss-950 border-t border-white/5 relative z-10 text-slate-300">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+            <div class="text-center md:text-left space-y-2">
+                <span class="text-xl font-black bg-gradient-to-r from-wave-400 to-white bg-clip-text text-transparent">KIM RAEWON</span>
+                <p class="text-xs text-slate-500">© 2026 Kim Rae Won. Designed for Portfolio.</p>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="flex space-x-4">
+                <a href="https://github.com" target="_blank" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-slate-300 hover:bg-wave-500 hover:text-white transition-colors" title="Github">
+                    <i class="fa-brands fa-github text-lg"></i>
+                </a>
+                <a href="#about" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-slate-300 hover:bg-wave-500 hover:text-white transition-colors" title="Scroll Top">
+                    <i class="fa-solid fa-arrow-up text-lg"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // DOM Elements
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+
+        // Tab System Elements
+        const btnUniCourses = document.getElementById('btn-uni-courses');
+        const btnHighCourses = document.getElementById('btn-high-courses');
+        const btnCerts = document.getElementById('btn-certs');
+        
+        const contentUniCourses = document.getElementById('content-uni-courses');
+        const contentHighCourses = document.getElementById('content-high-courses');
+        const contentCerts = document.getElementById('content-certs');
+
+        // PlayGround Sliders
+        const inputPAtk = document.getElementById('input-p-atk');
+        const inputPSpd = document.getElementById('input-p-spd');
+        const inputMHp = document.getElementById('input-m-hp');
+        const inputMAtk = document.getElementById('input-m-atk');
+
+        const valPAtk = document.getElementById('val-p-atk');
+        const valPSpd = document.getElementById('val-p-spd');
+        const valMHp = document.getElementById('val-m-hp');
+        const valMAtk = document.getElementById('val-m-atk');
+
+        const outTtk = document.getElementById('out-ttk');
+        const outSurvival = document.getElementById('out-survival');
+        const systemInsight = document.getElementById('system-insight');
+        const btnSimulate = document.getElementById('btn-simulate');
+
+        // Mobile Menu Toggle logic
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            if(mobileMenu.classList.contains('hidden')) {
+                menuIcon.className = 'fa-solid fa-bars text-xl';
+            } else {
+                menuIcon.className = 'fa-solid fa-xmark text-xl';
+            }
+        });
+
+        // Tab Switching logic (3-Tab System - Defaulting to High School)
+        function resetTabs() {
+            btnUniCourses.className = "px-6 py-3 font-bold text-sm border-b-2 border-transparent text-slate-400 hover:text-abyss-900 focus:outline-none transition-all";
+            btnHighCourses.className = "px-6 py-3 font-bold text-sm border-b-2 border-transparent text-slate-400 hover:text-abyss-900 focus:outline-none transition-all";
+            btnCerts.className = "px-6 py-3 font-bold text-sm border-b-2 border-transparent text-slate-400 hover:text-abyss-900 focus:outline-none transition-all";
+            
+            contentUniCourses.classList.add('hidden');
+            contentHighCourses.classList.add('hidden');
+            contentCerts.classList.add('hidden');
+        }
+
+        btnUniCourses.addEventListener('click', () => {
+            resetTabs();
+            btnUniCourses.className = "px-6 py-3 font-bold text-sm border-b-2 border-wave-500 text-wave-600 focus:outline-none transition-all";
+            contentUniCourses.classList.remove('hidden');
+        });
+
+        btnHighCourses.addEventListener('click', () => {
+            resetTabs();
+            btnHighCourses.className = "px-6 py-3 font-bold text-sm border-b-2 border-wave-500 text-wave-600 focus:outline-none transition-all";
+            contentHighCourses.classList.remove('hidden');
+        });
+
+        btnCerts.addEventListener('click', () => {
+            resetTabs();
+            btnCerts.className = "px-6 py-3 font-bold text-sm border-b-2 border-wave-500 text-wave-600 focus:outline-none transition-all";
+            contentCerts.classList.remove('hidden');
+        });
+
+        // Live Balancer calculation logic
+        function updateValues() {
+            valPAtk.innerText = inputPAtk.value;
+            valPSpd.innerText = inputPSpd.value;
+            valMHp.innerText = inputMHp.value;
+            valMAtk.innerText = inputMAtk.value;
+        }
+
+        function calculateBalance() {
+            const pAtk = parseFloat(inputPAtk.value);
+            const pSpd = parseFloat(inputPSpd.value);
+            const mHp = parseFloat(inputMHp.value);
+            const mAtk = parseFloat(inputMAtk.value);
+
+            // Compute TTK (Time to Kill)
+            const dps = pAtk * pSpd;
+            const ttk = mHp / dps;
+
+            const playerHp = 600;
+            const monsterAtkInterval = 2.0;
+            const monsterDps = mAtk / monsterAtkInterval;
+            
+            const totalDamageReceived = monsterDps * ttk;
+            const healthPercentageLeft = Math.max(0, ((playerHp - totalDamageReceived) / playerHp) * 100);
+
+            // Format Output
+            outTtk.innerText = ttk.toFixed(2) + "s";
+            
+            if (healthPercentageLeft <= 0) {
+                outSurvival.innerText = "0% (패배)";
+                outSurvival.className = "text-2xl font-mono font-black text-rose-500";
+            } else {
+                outSurvival.innerText = healthPercentageLeft.toFixed(0) + "%";
+                outSurvival.className = "text-2xl font-mono font-black text-emerald-400";
+            }
+
+            // Update Dynamic Insight based on formulas
+            let insight = "";
+            if (healthPercentageLeft <= 0) {
+                insight = "경고: 수치 불균형 상태입니다. 플레이어가 패배하여 콘텐츠의 장벽이 심해지고 유저 이탈 위협이 심각해질 수 있습니다.";
+            } else if (healthPercentageLeft < 30) {
+                outSurvival.className = "text-2xl font-mono font-black text-amber-500";
+                insight = "하드코어 전투: 난이도가 매우 높아 보스전 또는 레이드 구간에 적합합니다. 라이트 유저를 위해 회복 아이템을 유도하는 기획을 추천합니다.";
+            } else if (healthPercentageLeft < 75) {
+                outSurvival.className = "text-2xl font-mono font-black text-wave-400";
+                insight = "안정적인 하모니: 적당한 난이도를 보이고 있습니다. 유저에게 적절한 전략적 몰입감을 주어 가장 추천되는 보편적 스테이지 수치입니다.";
+            } else {
+                outSurvival.className = "text-2xl font-mono font-black text-emerald-400";
+                insight = "튜토리얼 최적화: 유저가 대단히 안전하며 피로도가 미미합니다. 초반 진입 장벽 완화 및 룰 설명을 위한 튜토리얼 최적의 설계 구간입니다.";
+            }
+
+            systemInsight.innerText = insight;
+        }
+
+        // Event listeners for inputs
+        inputPAtk.addEventListener('input', () => { updateValues(); calculateBalance(); });
+        inputPSpd.addEventListener('input', () => { updateValues(); calculateBalance(); });
+        inputMHp.addEventListener('input', () => { updateValues(); calculateBalance(); });
+        inputMAtk.addEventListener('input', () => { updateValues(); calculateBalance(); });
+
+        btnSimulate.addEventListener('click', () => {
+            btnSimulate.innerText = "수치 매트릭스 연산 중...";
+            btnSimulate.disabled = true;
+            setTimeout(() => {
+                calculateBalance();
+                btnSimulate.innerText = "실시간 밸런스 연산 & 전장 매트릭스 실행";
+                btnSimulate.disabled = false;
+            }, 400);
+        });
+
+        // Initialize values on load
+        window.onload = function() {
+            updateValues();
+            calculateBalance();
+        };
+    </script>
+</body>
+</html>
